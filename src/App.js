@@ -18,21 +18,20 @@ class App extends Component {
         memberSince: '07/23/96',
       }
     }
-    mockLogIn = (logInInfo) => {
-      const newUser = {...this.state.currentUser}
-      newUser.userName = logInInfo.userName
-      this.setState({currentUser: newUser})
-    }
+
+  }
+  mockLogIn = (logInInfo) => {
+    const newUser = {...this.state.currentUser}
+    newUser.userName = logInInfo.userName
+    this.setState({currentUser: newUser})
   }
 
   render() {
-
-
     const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
     const UserProfileComponent = () => (
         <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}  />
     );
-    const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
+    const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);
 
     return (
         <Router>
