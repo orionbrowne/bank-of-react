@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
+import Login from './Login'
 
 class App extends Component {
 
@@ -17,14 +18,15 @@ class App extends Component {
         memberSince: '07/23/96',
       }
     }
-  }
-
-  render() {
-    mockLogIn = (logInInfo) => {      
+    mockLogIn = (logInInfo) => {
       const newUser = {...this.state.currentUser}
       newUser.userName = logInInfo.userName
       this.setState({currentUser: newUser})
     }
+  }
+
+  render() {
+
 
     const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
     const UserProfileComponent = () => (
