@@ -1,6 +1,8 @@
 // Login.js
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
 
 class LogIn extends Component {
   constructor () {
@@ -47,6 +49,7 @@ class LogIn extends Component {
           </div>
           <button>Log In</button>
         </form>
+        <div><Link to="/">Return to Home</Link></div>
       </div>
     )
   }
