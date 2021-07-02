@@ -23,16 +23,8 @@ class App extends Component {
         userName: 'joe_shmo',
         memberSince: '07/23/96',
       },
-      debits: {
-        description: [],
-        amount: [],
-        date: [],
-      },
-      credits: {
-        description: [],
-        amount: [],
-        date: [],
-      },
+      debits: [],
+      credits: [],
       loading: true
     }
 
