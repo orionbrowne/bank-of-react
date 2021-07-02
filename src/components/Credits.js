@@ -9,11 +9,9 @@ class Credits extends Component {
   constructor () {
     super()
     this.state = {
-      newCredits: {
-        amount: '',
-        description: '',
-        date: new Date()
-      }
+      amount: '',
+      description: '',
+      date: new Date()
     }
   }
   makeList = () => {
@@ -24,7 +22,11 @@ class Credits extends Component {
   }
   handleInputChange = (e) => {
 
-    this.setState({credits: e.target.value});
+    this.setState({description: e.target.value});
+  }
+  handleAmountChange = (e) => {
+
+    this.setState({amount: e.target.value});
   }
 
   render() {
@@ -34,8 +36,8 @@ class Credits extends Component {
           <ul>{this.makeList()}</ul>
           <div>
 
-            <input type="value" id= 'addValue' value ={this.state.newCredits.amount} onChange={this.handleInputChange} placeholder="Enter amount of credit"/>
-            <input type="text" id = 'addDescription' value = {this.state.newCredits.description} Change={this.handleInputChange} placeholder="Enter description of credit"/>
+            <input type="text" id= 'addValue' value ={this.state.amount} onChange={this.handleAmountChange} placeholder="Enter amount of credit"/>
+            <input type="text" id = 'addDescription' value = {this.state.description} onChange={this.handleInputChange} placeholder="Enter description of credit"/>
             <button onClick={this.addCredit}>Add</button>
 
 

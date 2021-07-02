@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   addCredit = (e) => {
-    this.setState({credits: this.state.credits([e.target.value])
+    this.setState({credits: this.state.credits.concat([e.target.value])
     })
   }
 
