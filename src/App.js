@@ -27,12 +27,7 @@ class App extends Component {
       credits: [],
       loading: true
     }
-
-
   }
-
-
-
 
   mockLogIn = (logInInfo) => {
     const newUser = {...this.state.currentUser}
@@ -41,10 +36,10 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const url = "https://moj-api.herokuapp.com/debits";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({ debits: data.description, loading: false});
+    //const url = "https://moj-api.herokuapp.com/debits";
+    //const response = await fetch(url);
+    //const data = await response.json();
+    //this.setState({ debits: data.description, loading: false});
     let debits = await axios.get("https://moj-api.herokuapp.com/debits");
     let credits = await axios.get("https://moj-api.herokuapp.com/credits");
     //get data from API response
@@ -59,7 +54,7 @@ class App extends Component {
   }
 
   addCredit = (e) => {
-    this.credits.push(e);
+    this.Credits.push(e);
   }
 
   render() {
@@ -77,8 +72,8 @@ class App extends Component {
             <Route exact path="/" render={HomeComponent}/>
             <Route exact path="/userProfile" render={UserProfileComponent}/>
             <Route exact path="/login" render={LogInComponent}/>
-            <Route exact path="/Debits" render={Debits}/>
-            <Route exact path="/Credits" render={Credits}/>
+            <Route exact path="/Debits" render={DebitsComponent}/>
+            <Route exact path="/Credits" render={CreditsComponent}/>
 
           </div>
         </Router>
