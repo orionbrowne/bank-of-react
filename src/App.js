@@ -50,11 +50,11 @@ class App extends Component {
   }
 
   addDebit = (e) => {
-    this.debits.push(e);
   }
 
   addCredit = (e) => {
-    this.Credits.push(e);
+    this.setState({credits: this.state.credits([e.target.value])
+    })
   }
 
   render() {
