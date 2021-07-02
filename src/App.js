@@ -6,6 +6,9 @@ import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LogIn from './Login';
 import Debits from './components/Debits';
+import Credits from './components/Credits';
+import axios from "axios";
+
 // API: https://moj-api.herokuapp.com/debits
 //      https://moj-api.herokuapp.com/credits
 
@@ -25,10 +28,20 @@ class App extends Component {
         amount: [],
         date: [],
       },
+      credits: {
+        description: [],
+        amount: [],
+        date: [],
+      },
       loading: true
     }
 
+
   }
+
+
+
+
   mockLogIn = (logInInfo) => {
     const newUser = {...this.state.currentUser}
     newUser.userName = logInInfo.userName
@@ -40,7 +53,21 @@ class App extends Component {
     const response = await fetch(url);
     const data = await response.json();
     this.setState({ debits: data.description, loading: false});
+    let debits = await axios.get("https://moj-api.herokuapp.com/debits");
+    let credits = await axios.get("https://moj-api.herokuapp.com/credits");
+    //get data from API response
+    debits = debits.data;
+    credits = credits.data;
 
+    this.setState({debits, credits});
+  }
+
+  addDebit = (e) => {
+    this.debits.push(e);
+  }
+
+  addCredit = (e) => {
+    this.credits.push(e);
   }
 
   render() {
@@ -49,6 +76,8 @@ class App extends Component {
         <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}  />
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);
+    const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={this.state.credits} />);
+    const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={this.state.debits} />);
 
     return (
         <Router>
@@ -57,6 +86,7 @@ class App extends Component {
             <Route exact path="/userProfile" render={UserProfileComponent}/>
             <Route exact path="/login" render={LogInComponent}/>
             <Route exact path="/Debits" render={Debits}/>
+            <Route exact path="/Credits" render={Credits}/>
 
           </div>
         </Router>
