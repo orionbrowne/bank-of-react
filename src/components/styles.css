@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    font-family: Trebuchet MS;
+}
+
+body {
+ background-image: url("https://time.com/nextadvisor/wp-content/uploads/2020/09/na-5-money-rules-884x584.jpg");
+ color: #000000;
+}
+
+.div {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}

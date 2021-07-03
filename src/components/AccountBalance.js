@@ -1,5 +1,6 @@
 // src/components/AccountBalance.js
 
+import styles from './styles.css';
 import React, {Component} from 'react';
 
 
